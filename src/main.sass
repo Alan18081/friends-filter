@@ -1,0 +1,144 @@
+$red: #ff8663
+$gray: #f0f0f0
+$bg: #999999
+$black: #4f4f4f
+
+*
+  margin: 0
+  padding: 0
+
+body
+  width: 100%
+  height: 100vh
+  background: $bg
+  display: flex
+  justify-content: center
+  align-items: center
+
+.filter
+  width: 620px
+  border-radius: 12px
+  background-color: #fff
+
+.filter__header
+  border-radius: 12px 12px 0 0
+  padding: 16px 14px
+  background-color: $red
+  display: flex
+  justify-content: space-between
+
+.filter__title
+  font-size: 16px
+  color: #ffffff
+  font-family: 'Fira Sans Medium', sans-serif
+
+.filter__close
+  font-size: 16px
+  color: #ffffff
+
+.filter__search
+  background-color: $gray
+  padding: 10px 0
+  display: flex
+
+.filter__search-item
+  margin: 0 15px
+  width: 50%
+
+.filter__search-item_icon
+  position: relative
+  .filter__input
+    padding-left: 30px
+
+.filter__search-icon
+  position: absolute
+  left: 8px
+  top: 7px
+  color: #9f9f9f
+
+.filter__input
+  width: 100%
+  box-sizing: border-box
+  padding: 9px 16px
+  border: none
+  border-radius: 30px
+  font-family: 'Fira Sans Light', sans-serif
+
+.filter__content
+  padding: 15px 0 0
+  display: flex
+
+.filter__column
+  width: 50%
+  padding-left: 15px
+  &:first-child
+    border-right: 1px solid $gray
+
+.filter__list
+  height: 320px
+  overflow: auto
+  list-style-type: none
+
+.filter__item
+  display: flex
+  align-items: center
+  padding: 7px
+  cursor: pointer
+  transition: all .5s ease
+  &:hover
+    background: $gray
+
+.filter__img
+  border-radius: 50%
+  margin-right: 7px
+  width: 45px
+  height: 45px
+
+.filter__name
+  font-family: 'Fira Sans Medium', sans-serif
+  color: $black
+  font-size: 12px
+
+.filter__add
+  background: none
+  border: none
+  transition: all .5s ease
+  cursor: pointer
+  margin-left: auto
+
+.filter__icon
+  font-size: 18px
+  margin-left: auto
+  color: #c4c4c4
+  &:hover
+    color: $black
+
+.filter__caption
+  font-size: 12px
+  font-family: 'Fira Sans Medium', sans-serif
+  color: #4f4f4f
+  padding-bottom: 5px
+  border-bottom: 1px solid $gray
+
+.filter__bottom
+  background: $gray
+  padding: 7px
+  text-align: right
+  border-radius: 0 0 12px 12px
+
+.filter__button
+  padding: 10px 15px
+  background: $red
+  border-radius: 12px
+  color: #ffffff
+  font-family: 'Fira Sans Light', sans-serif
+  border: none
+  cursor: pointer
+  display: inline-block
+  transition: all .5s ease
+  &:hover
+    background-color: darken($red,5%)
+
+#selected
+  .filter__icon
+    transform: rotate(45deg)

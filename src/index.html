@@ -5,18 +5,58 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Friends</title>
+  <title>Friends Filter</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,500" rel="stylesheet">
+  <script src="https://use.fontawesome.com/e81bcca6e6.js"></script>
   <script src="https://vk.com/js/api/openapi.js?152" type="text/javascript"></script>
 </head>
 <body>
-  <button class="btn">Load info</button>
-  <ul class="list"></ul>
-  <script id="user-template" type="text/x-handlebars-template">
-    <div>
-      <img src="{{photo_100}}" alt="User photo">
-      <h1>{{first_name}} {{last_name}}</h1>
+  <main class="filter">
+    <div class="filter__header">
+      <h2 class="filter__title">Выберите друзей</h2>
+      <i class="fa fa-times filter__close"></i>
     </div>
+    <div class="filter__search">
+      <label class="filter__search-item filter__search-item_icon">
+        <i class="fa fa-search filter__search-icon"></i>
+        <input data-type="all" class="filter__input" type="text" id="searchAll" placeholder="Начните вводить имя друга">
+      </label>
+      <label class="filter__search-item">
+        <input data-type="selected" class="filter__input" type="text" id="searchSelected" placeholder="Название">
+      </label>
+    </div>
+    <div class="filter__content">
+      <div class="filter__column">
+        <h3 class="filter__caption">Ваши друзья</h3>
+        <ul class="filter__list" id="all">
+        </ul>
+      </div>
+      <div class="filter__column">
+        <h3 class="filter__caption">Друзья в списке</h3>
+        <ul class="filter__list" id="selected" dropzone="move">
+        </ul>
+      </div>
+    </div>
+    <div class="filter__bottom">
+      <button class="filter__button">Сохранить</button>
+    </div>
+  </main>
+  <script id="list-template" type="text/x-handlebars-template">
+    {{#each friends}}
+      <li draggable="true" class="filter__item" data-id="{{id}}">
+        <img class="filter__img" src="{{photo_50}}" alt="User">
+        <h4 class="filter__name">{{first_name}} {{last_name}}</h4>
+        <i class="fa fa-plus filter__icon"></i>
+      </li>
+    {{/each}}
   </script>
-  <!--<script src="bundle.js"></script>-->
+  <script id="item-template" type="text/x-handlebars-template">
+    <li class="filter__item" data-id="{{id}}">
+      <img class="filter__img" src="{{photo_50}}" alt="User">
+      <h4 class="filter__name">{{first_name}} {{last_name}}</h4>
+      <!--<button class="filter__control"></button>-->
+      <i class="fa fa-plus filter__icon"></i>
+    </li>
+  </script>
 </body>
 </html>
